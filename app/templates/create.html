@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>Create Agreement</h1>
+    <form method="POST">
+        <label for="title">Title:</label><br>
+        <input type="text" name="title" required><br>
+        <label for="description">Content:</label><br>
+        <textarea name="description" required></textarea><br>
+        <button type="submit">Create Agreement</button>
+    </form>
+{% endblock %}
+

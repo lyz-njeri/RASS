@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>Rooms</h1>
+    {% if rooms %}
+        <ul>
+            {% for room in rooms %}
+                <li>
+                    <h3>{{ room.name }}</h3>
+                    <p>{{ room.description }}</p>
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No rooms found.</p>
+    {% endif %}
+    <a href="{{ url_for('rooms.create_room') }}">Create New Room</a>
+{% endblock %}

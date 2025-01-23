@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>Agreements</h1>
+    {% if agreements %}
+        <ul>
+            {% for agreement in agreements %}
+                <li>
+                    <h3>{{ agreement.title }}</h3>
+                    <p>Status: {{ agreement.status }}</p>
+                    <p>{{ agreement.description }}</p>
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No agreements found.</p>
+    {% endif %}
+    <a href="{{ url_for('agreements.create_agreement') }}">Create New Agreement</a>
+{% endblock %}

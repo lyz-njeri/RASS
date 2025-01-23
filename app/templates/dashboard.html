@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>Dashboard</h1>
+    <h2>Welcome, {{ current_user.username }}!</h2>
+    
+    <section>
+        <h3>Your Agreements</h3>
+        {% if agreements %}
+            <ul>
+                {% for agreement in agreements %}
+                    <li>{{ agreement.title }} - Status: {{ agreement.status }}</li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p>No agreements found.</p>
+        {% endif %}
+        <a href="{{ url_for('agreements.create_agreement') }}">Create New Agreement</a>
+    </section>
+
+    <section>
+        <h3>Your Rooms</h3>
+        {% if rooms %}
+            <ul>
+                {% for room in rooms %}
+                    <li>{{ room.name }}</li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p>No rooms found.</p>
+        {% endif %}
+        <a href="{{ url_for('rooms.create_room') }}">Create New Room</a>
+    </section>
+{% endblock %}
